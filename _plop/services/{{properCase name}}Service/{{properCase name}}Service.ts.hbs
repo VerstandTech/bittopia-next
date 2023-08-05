@@ -1,0 +1,13 @@
+import BaseService from '@/services/_base'
+import { AxiosResponse } from 'axios'
+
+interface {{properCase name}}ServiceResponseInterface extends AxiosResponse {
+  data: any
+}
+
+export class {{properCase name}}Service extends BaseService {
+  public async getResource (): Promise<{{properCase name}}ServiceResponseInterface> {
+    // implement your things here
+    return await this.request.get('/resource')
+  }
+}
