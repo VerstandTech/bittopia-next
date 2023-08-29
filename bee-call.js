@@ -5,7 +5,7 @@ import * as fs from 'fs'
 export const bee = new Bee('http://localhost:1633')
 export const debug = new BeeDebug('http://localhost:1635')
 
-const postageBatchId = await debug.createPostageBatch('100', 17) // allocate space in the network to upload the file
+const postageBatchId = await debug.createPostageBatch('1000', 1) // allocate space in the network to upload the file
 // const result = await bee.uploadData(postageBatchId, 'Bee is awesome!')
 
 const data = fs.readFileSync('package.json', 'utf8')

@@ -1,9 +1,14 @@
 import { beeDebug } from '@/vendor/BeeInstanceUtil/BeeInstanceUtil'
 import { type BatchId } from '@ethersphere/bee-js'
 
-export async function createPostageBatchUtil (): Promise<BatchId> {
+/**
+ *
+ * @param amount is the amount of time that the information will be available on swarm
+ * @param depth is the amount of memory allocated
+ */
+export async function createPostageBatchUtil (amount = '10000', depth = 1): Promise<BatchId> {
   try {
-    return await beeDebug.createPostageBatch('100', 17)
+    return await beeDebug.createPostageBatch(amount, depth)
   } catch (error: any) {
     const errorMessage = error.message
     if (errorMessage !== undefined) {
@@ -12,20 +17,3 @@ export async function createPostageBatchUtil (): Promise<BatchId> {
     throw new Error('Failed to create postage batch')
   }
 }
-
-// export async function createPostageBatchUtil (
-//   account: string,
-//   beeDebug: BeeDebug
-// ): Promise<BatchId> {
-//   try {
-//     return await beeDebug.createPostageBatch('10000', 17, {
-//       label: account
-//     })
-//   } catch (error: any) {
-//     const errorMessage = error.message
-//     if (errorMessage !== undefined) {
-//       throw new Error(`Failed to create postage batch: ${errorMessage}`)
-//     }
-//     throw new Error('Failed to create postage batch')
-//   }
-// }

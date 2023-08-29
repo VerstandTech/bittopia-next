@@ -8,11 +8,16 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        primary: 'var(--primary-color)',
+        'background-color': 'var(--background-color)',
+        'gray-transparent-50': 'var(--gray-transparent)'
       },
+      gridTemplateColumns: {
+        'society-feed': '250px 1fr'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ]
 }
